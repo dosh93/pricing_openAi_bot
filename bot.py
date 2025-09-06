@@ -47,7 +47,7 @@ async def set_rate(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(f"Курс установлен: {rate} руб. за 1 USD")
 
 async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-        if len(context.args) != 2:
+    if len(context.args) != 2:
         await update.message.reply_text("Использование: /calc <токены_ввода> <токены_вывода>")
         return
     try:
