@@ -47,7 +47,7 @@ async def set_rate(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(f"Курс установлен: {rate} руб. за 1 USD")
 
 async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    if len(context.args) != 2:
+        if len(context.args) != 2:
         await update.message.reply_text("Использование: /calc <токены_ввода> <токены_вывода>")
         return
     try:
@@ -67,7 +67,7 @@ async def calc(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     total_rub = (input_cost_usd + output_cost_usd) * data["rate"]
     await update.message.reply_text(f"Стоимость: {total_rub:.2f} руб.")
 
-async def main() -> None:
+def main() -> None:
     token = os.environ.get("BOT_TOKEN")
     if not token:
         raise RuntimeError("BOT_TOKEN environment variable not set")
@@ -76,7 +76,7 @@ async def main() -> None:
     app.add_handler(CommandHandler("set_prices", set_prices))
     app.add_handler(CommandHandler("set_rate", set_rate))
     app.add_handler(CommandHandler("calc", calc))
-    await app.run_polling()
+    app.run_polling()
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
