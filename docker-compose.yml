@@ -1,6 +1,7 @@
 version: "3.9"
 services:
-  bot:
+  bot_pricing_ai:
     build: .
     environment:
       - BOT_TOKEN=${BOT_TOKEN}
+    network_mode: host
